@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eksempel mandag</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      img {
+        width: 400px;
+      }
+      #buttonDiv {
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="header1">Dette er en "H1 tag"!</h1>
+    <div id="buttonDiv">
+    <button onclick="changeHeader()">Skift innhold i headeren</button>
+    <img src="98273498374928347902384.jpg" alt="funPicture">
+    </div>
+
+    <script>
+        let buttonDiv = document.getElementById('buttonDiv');
+        let header1 = document.getElementById('header1');
+        let picturePath = "";
+
+        function changeHeader() {
+            picturePath = "If_you_are_stuck_on_a_problem_ask_your_partner.jpg";
+            header1.innerHTML = "Meepmeep, ny overskrift!"
+            buttonDiv.innerHTML = /*HTML*/`
+                <button 
+                    onclick="ResetHeader()"
+                    style="background-color: lightblue"
+                    >Reset Header</button>
+                
+                <img src="${picturePath}" alt="funPicture">
+            `;
+        }
+        function ResetHeader() {
+            picturePath = "98273498374928347902384.jpg"
+            buttonDiv.innerHTML = /*HTML*/`
+                <button onclick="changeHeader()">Skift innhold i headeren</button>
+                
+                <img src="${picturePath}" alt="funPicture">
+            `;
+            header1.innerHTML = 'Dette er en "H1 tag"!';
+        }
+    </script>
+  </body>
+</html>
